@@ -35,7 +35,7 @@ void app_main (void)
         led_red_on();
     }
 
-    vTaskDelay(pdMS_TO_TICKS(500));
+    vTaskDelay(pdMS_TO_TICKS(3000));
     led_off();
     }
 }
