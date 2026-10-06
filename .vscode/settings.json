@@ -31,5 +31,5 @@
     "--compile-commands-dir=c:\\Users\\User\\Desktop\\project\\SMN\\build"
   ],
   "idf.flashType": "UART",
-  "idf.port": "COM6"
+  "idf.port": "COM3"
 }
