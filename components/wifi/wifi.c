@@ -5,8 +5,8 @@
 #include "nvs_flash.h"
 #include "wifi.h"
 
-#define wifi_ //와이파이 이름
-#define wifi_password //와이파이 비밀번호
+#define wifi "1-2" //와이파이 이름
+#define wifi_password "Dsmhswf215!" //와이파이 비밀번호
 
 void wifi_event(
     void *arg,
@@ -50,7 +50,7 @@ void wifi_init(void) {
 
     wifi_config_t  config = {
         .sta = {
-            .ssid = wifi_,
+            .ssid = wifi,
             .password = wifi_password,
         },
     };
