@@ -8,7 +8,7 @@
 #define wifi "1-2" //와이파이 이름
 #define wifi_password "Dsmhswf215!" //와이파이 비밀번호
 
-void wifi_event(
+void wifi_event(                        //wifi 이벤트 근데 와이파이는 그 통신때매 한건데... 흠
     void *arg,
     esp_event_base_t base,
     int32_t id,
@@ -29,7 +29,7 @@ void wifi_event(
     }
 }
 
-void wifi_init(void) {
+void wifi_init(void) {                          //wifi 초기화
     ESP_ERROR_CHECK(nvs_flash_init());
     ESP_ERROR_CHECK(esp_netif_init());
     ESP_ERROR_CHECK(esp_event_loop_create_default());
