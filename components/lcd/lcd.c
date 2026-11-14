@@ -15,26 +15,26 @@
 #define LCD_EN 0x04
 #define LCD_BACKLIGHT 0x08
 
-i2c_master_bus_handle_t i2c_bus= NULL;
-i2c_master_dev_handle_t lcd_dev = NULL;
+i2c_master_bus_handle_t i2c_bus= NULL; // I2C 버스를 참조하는 핸들
+i2c_master_dev_handle_t lcd_dev = NULL; //버스에 등록된 I2C 장치를 참조하는 핸들
 
-void lcd_init(void) {           //lcd 초기화
-    i2c_master_bus_config_t bus = {
+void lcd_init(void) {           //lcd 초기화 함수
+    i2c_master_bus_config_t bus = { // I2C 버스 정의
         .i2c_port = I2C_NUM_0,
         .sda_io_num = LCD_SDA,
         .scl_io_num = LCD_SCL,
         .clk_source = I2C_CLK_SRC_DEFAULT,
     };
 
-    ESP_ERROR_CHECK(i2c_new_master_bus(&bus, &i2c_bus));
+    ESP_ERROR_CHECK(i2c_new_master_bus(&bus, &i2c_bus));  // 버스 생성 및 초기화
 
-    i2c_device_config_t dev = {
+    i2c_device_config_t dev = { // 통신 장치 정의
         .dev_addr_length = I2C_ADDR_BIT_LEN_7,
         .device_address = LCD_ADDR,
         .scl_speed_hz = LCD_FREQ
     };
 
-    ESP_ERROR_CHECK(i2c_master_bus_add_device(i2c_bus, &dev, &lcd_dev));
+    ESP_ERROR_CHECK(i2c_master_bus_add_device(i2c_bus, &dev, &lcd_dev)); // 생성된 버스에 통신할 장치를 등록
 
     vTaskDelay(pdMS_TO_TICKS(60));
 
@@ -50,8 +50,8 @@ void lcd_init(void) {           //lcd 초기화
     lcd_send(0x0C, 0);  //화면 on
 }
 
-void lcd_write_byte(uint8_t data) {             // 데이터를 i2c로 1바이트 전송
-    ESP_ERROR_CHECK(i2c_master_transmit(
+void lcd_write_byte(uint8_t data) {             // 데이터를 I2C로 전송하는 함수
+    ESP_ERROR_CHECK(i2c_master_transmit( // 데이터를 i2c로 1바이트 전송
         lcd_dev, &data, 1, pdMS_TO_TICKS(1000))
     );
 }
