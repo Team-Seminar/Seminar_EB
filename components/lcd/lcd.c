@@ -5,8 +5,8 @@
 #include "esp_err.h"
 #include "lcd.h"
 
-#define LCD_SDA GPIO_NUM_22
-#define LCD_SCL GPIO_NUM_23
+#define LCD_SDA GPIO_NUM_13
+#define LCD_SCL GPIO_NUM_14
 #define LCD_ADDR 0x27
 #define LCD_FREQ 100000
 

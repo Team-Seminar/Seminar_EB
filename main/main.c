@@ -7,7 +7,6 @@
 #include "led.h"
 #include "lcd.h"
 #include "keypad.h"   
-#include "wifi.h"
 
 char PASSWORD[5] = { '1', '2', '3', '4', '\0'};
 
@@ -18,7 +17,6 @@ void app_main (void)
     led_init();
     lcd_init();
     keypad_init();
-    wifi_init();
     while(1) {
 
     input_password(input_pw);

@@ -10,16 +10,16 @@
 
 
 const gpio_num_t row_pin[ROW_NUM] =  {          //행 핀 번호
-    GPIO_NUM_19,
-    GPIO_NUM_4,
-    GPIO_NUM_16,
-    GPIO_NUM_5
+    GPIO_NUM_5,
+    GPIO_NUM_15,
+    GPIO_NUM_2,
+    GPIO_NUM_4
 };
 
 const gpio_num_t column_pin[COLUMN_NUM] =  {            //열 핀 번호
+    GPIO_NUM_17,
     GPIO_NUM_18,
-    GPIO_NUM_21,
-    GPIO_NUM_17
+    GPIO_NUM_0
 };
 
 char keys[ROW_NUM][COLUMN_NUM] = {
@@ -48,7 +48,6 @@ char keypad_scan(void) {                    //키패드 스캔, 누른 키 반�
         for (int col = 0; col < COLUMN_NUM; col++) {
             if (gpio_get_level(column_pin[col]) == 1) {     //열에서 HIGH 상태 눌린 키 감지
                     char key = keys[row][col];
-                    vTaskDelay(pdMS_TO_TICKS(20)); //테스크 대기상태로 설정(왜 사용했지?)
 
                     while (gpio_get_level(column_pin[col]) == 1) {      //길게 누른 키 중복 입력 방지
                         vTaskDelay(pdMS_TO_TICKS(10));
