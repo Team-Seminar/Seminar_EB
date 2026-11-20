@@ -1,8 +1,8 @@
 #include "driver/gpio.h"         // gpio_set_level(), gpio_get_level()
 
-#define RED_GPIO GPIO_NUM_21
+#define RED_GPIO GPIO_NUM_23
 #define GREEN_GPIO GPIO_NUM_22
-#define BLUE_GPIO GPIO_NUM_23
+#define BLUE_GPIO GPIO_NUM_21
 
 void led_init(void) {                               //led 초기화
     gpio_reset_pin(RED_GPIO);
