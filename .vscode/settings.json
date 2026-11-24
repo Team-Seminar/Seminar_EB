@@ -19,9 +19,13 @@
       "inheritDefault": "hidden"
     }
   },
+<<<<<<< HEAD
   "idf.openOcdConfigs": [
     "board/esp32-wrover-kit-3.3v.cfg"
   ],
+=======
+  "idf.openOcdConfigs": ["board/esp32-wrover-kit-3.3v.cfg"],
+>>>>>>> ee8997a13354f517a8850e8bdc05c4a3e074948c
   "idf.currentSetup": "C:\\esp\\v6.1\\esp-idf",
   "idf.customExtraVars": {
     "IDF_TARGET": "esp32"
@@ -33,5 +37,9 @@
     "--compile-commands-dir=c:\\Users\\User\\Desktop\\project\\SMN\\build"
   ],
   "idf.flashType": "UART",
+<<<<<<< HEAD
   "idf.port": "COM11"
+=======
+  "idf.port": "COM7"
+>>>>>>> ee8997a13354f517a8850e8bdc05c4a3e074948c
 }
